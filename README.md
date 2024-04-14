@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #  whiskerswhistle
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -33,3 +34,6 @@ npm run build
 ```sh
 npm run lint
 ```
+=======
+# whiskerswhistle
+>>>>>>> b7036347a8d6848bafaf6ec78dd3e3150f9c29ed
