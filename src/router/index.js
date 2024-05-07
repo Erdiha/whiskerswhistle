@@ -34,8 +34,8 @@ const router = createRouter({
       component: () => import('../views/LegalityView.vue')
     },
     {
-      path: '/Resources',
-      name: 'Resources',
+      path: '/resources',
+      name: 'resources',
       component: () => import('../views/ResourcesView.vue'),
       meta: {
         title: 'Resources'
@@ -48,8 +48,25 @@ const router = createRouter({
       meta: {
         title: 'ContactUs'
       }
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('../views/SearchView.vue'),
+      meta: {
+        title: 'Search'
+      }
+    },
+
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
     }
-  ]
+  }
+
 })
 
 export default router

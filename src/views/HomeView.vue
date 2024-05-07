@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen min-h-[94dvh] flex justify-center items-center flex-col">
+  <div class="w-screen min-h-[100dvh] flex justify-center items-center flex-col">
     <LandingPage />
   </div>
 </template>

@@ -2,7 +2,11 @@
   <div class="container">
     <img :src="imgSrc" alt="User Image" />
     <div v-if="text" class="text-container">
-      <p>{{ text }}</p>
+      <!-- Combine text and slot in a single inline element -->
+      <p class="flex flex-col justify-center items-center">
+        <span>{{ text }} </span>
+        <slot name="extra-content"></slot>
+      </p>
     </div>
   </div>
 </template>
@@ -19,40 +23,34 @@ defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem; /* Responsive padding */
+  padding: 1rem;
 }
 
 img {
-  max-width: 90%; /* Default max width */
+  max-width: 90%;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: max-width 0.3s ease-in-out;
   height: auto;
-  z-index: -1;
-  display: flex;
-  position: relative;
 }
 
 .text-container {
-  width: 85%; /* Responsive width for better text control */
+  width: 85%;
   margin: 1rem 0;
   padding: 0.5rem;
-  font-size: 1rem; /* Default text size for smaller screens */
-  text-align: center; /* Center align text for better readability */
+  text-align: center;
   font-weight: bold;
   letter-spacing: 0.05rem;
 }
 
 @media (min-width: 768px) {
-  /* Medium devices and up */
   img {
     max-width: 45%;
   }
-
   .text-container {
-    width: 50%; /* More controlled width on larger screens */
+    width: 50%;
     padding: 1rem;
-    font-size: 1.5rem; /* Slightly larger text on bigger screens */
+    font-size: 1.5rem;
   }
 }
 </style>
