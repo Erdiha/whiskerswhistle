@@ -9,6 +9,8 @@ import App from './App.vue';
 import './assets/main.css';
 import './assets/tailwind.css';
 import router from './router';
+import 'primeicons/primeicons.css'
+
 
 
 

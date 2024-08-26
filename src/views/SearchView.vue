@@ -15,7 +15,7 @@
       <section
         class="w-full h-full flex border justify-center items-center p-4 bg-mainWhite text-mainBlack rounded"
       >
-        <div class="w-full h-full flex justify-center items-center">
+        <div v-if="!showList" class="w-full h-full flex justify-center items-center">
           <div class="card flex justify-center items-center">
             <div class="flex flex-column justify-center items-center flex-col">
               <p class="text-color-secondary block mb-5">
@@ -30,17 +30,26 @@
                 </template>
               </InputOtp>
               <div
-                class="flex justify-content-between mt-5 align-self-stretch w-full justify-evenly h-full"
+                class="flex justify-content-between mt-5 align-self-stretch w-full justify-evenly h-full flex-col"
               >
                 <Button
                   severity="contrast"
                   class="border-2 border-mainBlack text-center text-red-500 text-xl m-5"
                   label="Submit Code"
+                  @click="handleClick"
+                  v-if="value?.length === 6"
                 />
+                <p
+                  class="text-red-500 font-bold tracking-wide mt-10 transition-all duration-500 ease-in-out text-center"
+                  :key="Date.now()"
+                >
+                  {{ message }}
+                </p>
               </div>
             </div>
           </div>
         </div>
+        <div v-else><ListPage /></div>
       </section>
     </div>
   </div>
@@ -50,8 +59,25 @@
 import Button from 'primevue/button'
 import InputOtp from 'primevue/inputotp'
 import { ref } from 'vue'
-
+import { mockOTP } from '../components/texts/TextsUI.js'
+import ListPage from './../components/searchPage/ListPage.vue'
 const value = ref(null)
+const showList = ref(false)
+const message = ref('')
+console.log(value?.value)
+
+function handleClick() {
+  console.log('Handling click, current value:', value.value)
+  const valueCase = value.value.toUpperCase()
+  if (mockOTP.includes(valueCase)) {
+    showList.value = true
+    console.log('Valid OTP, showing list.')
+  } else {
+    message.value = 'PLEASE ENTER VALID CODE!'
+    value.value = '' // Clear the input
+    console.log('Invalid OTP, message set:', message.value)
+  }
+}
 </script>
 
 <style scoped>

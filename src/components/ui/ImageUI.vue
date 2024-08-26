@@ -23,34 +23,43 @@ defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 }
 
 img {
-  max-width: 90%;
+  max-width: 45%;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: max-width 0.3s ease-in-out;
-  height: auto;
 }
 
 .text-container {
-  width: 85%;
-  margin: 1rem 0;
-  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  font-weight: bold;
-  letter-spacing: 0.05rem;
+  font-weight: normal;
+  margin-top: 3rem;
 }
-
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   img {
-    max-width: 45%;
+    max-width: 50%;
   }
   .text-container {
     width: 50%;
-    padding: 1rem;
-    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 468px) {
+  img {
+    max-width: 80%;
+  }
+  .text-container {
+    width: 80%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 }
 </style>

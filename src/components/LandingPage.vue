@@ -1,21 +1,22 @@
 <template>
   <main
     ref="mainScroll"
-    :class="{}"
-    class="flex w-full md:min-h-screen justify-center items-center flex-col max-w-7xl mt-[7vh] mb-[7vh] main-class"
+    class="flex w-full md:min-h-screen justify-center items-center flex-col max-w-[50rem] md:mt-[6vh] mt-[9vh] main-class"
   >
-    <div class="flex justify-center items-center flex-col h-[86vh] p-5 w-full overflow-y-auto">
-      <div class="icon-box flex flex-col justify-center items-center w-full h-1/4 p-5">
-        <h1 class="text-3xl md:text-4xl font-semibold justify-center mb-5 h1-box text-gray-600/50">
+    <div class="flex justify-center items-center flex-col h-[86vh] w-full overflow-y-auto">
+      <div class="icon-box flex flex-col justify-evenly items-center w-full h-fit min-h-[20%] pt-4">
+        <h1 class="text-2xl md:text-1xl font-semibold justify-center h1-box text-gray-600/50">
           WELCOME TO
         </h1>
         <article
-          class="text-2xl md:text-5xl text-gray-700 flex flex-col justify-center items-center w-full icon-box"
+          class="text-2xl md:text-3xl text-gray-700 flex flex-col justify-center items-center w-full icon-box"
         >
-          <p>Whiskers Whistle</p>
+          Whiskers Whistle
         </article>
       </div>
-      <div class="w-full h-3/4 flex justify-center items-center relative">
+      <div
+        class="max-w-[50rem] h-2/3 flex md:justify-around md:items-start justify-center items-center relative"
+      >
         <ImageUI :text="FirstLandingText" :imgSrc="'/src/assets/dogfacewithhand.jpg'">
           <template #extra-content>
             <a
@@ -32,7 +33,7 @@
                   backgroundColor: 'red'
                 }
               }"
-              class="z-[9999] relative flex cursor-pointer"
+              class="z-[9999] relative flex cursor-pointer mt-2"
               target="_blank"
               href="https://www.shelteranimalscount.org/animal-abuse-facts-and-statistics-2024/"
             >
@@ -43,28 +44,32 @@
       </div>
     </div>
 
-    <div :class="{}" class="flex flex-col h-[86vh] w-full border-2 shadow-lg p-[4rem]">
-      <h1 class="text-[2rem] flex border-b-2">{{ SecondLandingText.titles.main }}</h1>
+    <div
+      class="flex flex-col w-full justify-center md:min-h-[100vh] md:h-[50vh] p-[2rem] md:p-[10rem] h-[80vh]"
+    >
+      <h1 class="md:text-[1.2rem] border-b-2 flex text-black font-500 font-semibold">
+        {{ SecondLandingText.titles.main }}
+      </h1>
       <section class="flex flex-col justify-evenly items-start w-full h-full">
-        <article class="text-xl">
-          <h2 class="text-2xl flex font-normal text-gray-500 pb-4">
+        <article class="md:text-xl">
+          <h2 class="md:text-xl flex text-gray-600 pt-4 pb-3">
             {{ SecondLandingText.titles.subtitles.first }}
           </h2>
-          <p class="space-y-2 flex tracking-wide leading-8 text-[1.1rem]">
+          <p class="flex tracking-wide leading-5 md:leading-8 md:text-[1rem] text-gray-600 text-sm">
             {{ SecondLandingText.body.first }}
           </p>
         </article>
         <article>
-          <h2 class="text-2xl flex font-normal text-gray-500 pb-4">
+          <h2 class="md:text-xl flex text-gray-600 pt-4 pb-3">
             {{ SecondLandingText.titles.subtitles.second }}
           </h2>
-          <p>{{ SecondLandingText.body.second }}</p>
+          <p class="flex tracking-wide leading-5 md:leading-8 md:text-[1rem] text-gray-600 text-sm">
+            {{ SecondLandingText.body.second }}
+          </p>
         </article>
       </section>
     </div>
-
     <!-- Scroll Down Arrow -->
-
     <div
       v-show="closeArrow"
       class="absolute z-[99999] w-fit h-fit bottom-[8%] cursor-pointer rounded-full animate-bounce hidden md:flex"
@@ -108,6 +113,7 @@ onMounted(() => {
     { opacity: 1, scale: 0.9, translateY: '-1rem' },
     { duration: 0.9, easing: 'ease-in-out' }
   )
+
   animate(
     '.icon-box',
     { opacity: 1, scale: 1, translateY: '-0.95rem' },

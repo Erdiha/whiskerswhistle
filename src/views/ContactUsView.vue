@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex h-[87vh] w-full flex-col max-w-[70rem] mx-auto mt-[7vh] justify-center items-center md:space-y-20 space-y-4 overflow-y-auto md:min-h-[87vh]"
+    class="flex h-[87vh] w-full flex-col max-w-[50rem] mx-auto mt-[7vh] justify-center items-center md:space-y-10 space-y-4 overflow-y-auto md:min-h-[87vh]"
   >
-    <p class="font-bold md:text-2xl tex-xl md:w-[60%] flex flex-col w-[90%]">
+    <p class="font-bold md:text-xl tex-lg md:w-[60%] flex flex-col w-[90%]">
       We Will Get in Touch As Soon As Possible.
     </p>
 

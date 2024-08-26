@@ -1,16 +1,20 @@
 <template>
   <div
-    class="flex justify-center m flex-col md:w-[50rem] md:mx-auto items-center 2xl:w-[60rem] w-[100%] h-[93vh] p-5 overflow-y-auto md:min-h-[90vh]"
+    class="flex justify-center flex-col md:w-[40rem] md:mx-auto items-center 2xl:w-[50rem] w-[100%] h-[100vh] p-5 md:min-h-[100vh]"
   >
-    <h1 class="text-2xl font-semibold md:my-10 mt-[7vh] my-4 w-full px-3 max-h-full">
-      Submit A Claim
-    </h1>
+    <h1 class="text-xl font-semibold w-full px-5 max-h-full">Submit A Claim</h1>
     <FormKit
       id="form-wrapper"
       type="form"
       #default="{ value }"
       @submit="handleSubmit"
       :value="data"
+      text-class="text-sm"
+      :classes="{
+        label: 'text-xs',
+        help: 'text-xs',
+        input: 'text-xs'
+      }"
     >
       <FormKit
         type="email"
@@ -19,6 +23,11 @@
         placeholder="email@domain.com"
         validation="required|email"
         help="Necessary for reaching out to you or validate your claim"
+        :classes="{
+          label: 'text-xs',
+          help: 'text-xs',
+          input: 'text-xs'
+        }"
       />
       <FormKit
         type="text"
@@ -27,6 +36,24 @@
         placeholder="Jane Doe"
         validation="required|fullname"
         help="Necessary for reaching out to you or validate your claim"
+        :classes="{
+          label: 'text-xs',
+          help: 'text-xs',
+          input: 'text-xs'
+        }"
+      />
+      <FormKit
+        type="text"
+        label="Person's Full Name (not your name)"
+        name="personsname"
+        placeholder="Jane Doe"
+        validation="required|personsname"
+        help="Necessary for reaching out to you or validate your claim"
+        :classes="{
+          label: 'text-xs',
+          help: 'text-xs',
+          input: 'text-xs'
+        }"
       />
       <FormKit
         id="form-select-animal-type"
@@ -36,6 +63,12 @@
         placeholder="Select Animal Type"
         validation="required|select"
         :options="['Cat', 'Dog', 'Other']"
+        :style="{ fontSize: '10px' }"
+        :classes="{
+          label: 'text-xs',
+          help: 'text-xs',
+          input: 'text-xs'
+        }"
       />
       <FormKit
         id="form-select-proof-type"
@@ -45,29 +78,68 @@
         placeholder="Select Proof Type"
         validation="required|select"
         :options="['Witness', 'Video/Image', 'Confession', 'Other']"
+        :classes="{
+          label: 'text-xs',
+          help: 'text-xs',
+          input: 'text-xs'
+        }"
       />
-      <FormKit
-        id="address-group-wrapper"
-        type="group"
-        name="address"
-        :value="{}"
-        class="address-group-wrapper"
-      >
-        <FormKit label="Street" name="street" />
-        <FormKit name="city" label="City" />
+      <div class="flex flex-col my-2 border-[1px] border-black/50 px-2">
         <FormKit
-          type="select"
-          name="state"
-          label="State"
-          :options="['State1', 'State2', 'State3']"
-        />
-      </FormKit>
+          id="address-group-wrapper"
+          type="group"
+          name="address"
+          :value="{}"
+          class="address-group-wrapper"
+          :classes="{
+            label: 'text-xs',
+            help: 'text-xs',
+            input: 'text-xs'
+          }"
+        >
+          <FormKit
+            :classes="{
+              label: 'text-xs',
+              help: 'text-xs',
+              input: 'text-xs'
+            }"
+            label="Street"
+            name="street"
+          />
+          <FormKit
+            :classes="{
+              label: 'text-xs',
+              help: 'text-xs',
+              input: 'text-xs'
+            }"
+            name="city"
+            label="City"
+          />
+          <FormKit
+            type="select"
+            name="state"
+            label="State"
+            :options="['State1', 'State2', 'State3']"
+            :classes="{
+              label: 'text-xs',
+              help: 'text-xs',
+              input: 'text-xs'
+            }"
+          />
+        </FormKit>
+      </div>
       <FormKit
         id="form-file-address"
         type="file"
         label="Documents"
         help="Select as many documents as you would like."
         multiple="true"
+        label-class="text-sm"
+        :classes="{
+          label: 'text-[10px]',
+          help: 'text-[8px]',
+          input: 'text-[10px]'
+        }"
       />
       <FormKit
         id="form-comment"
@@ -78,6 +150,11 @@
         :help="`${value?.instructions ? value.instructions.length : 0} / 120`"
         validation="length:0,120"
         validation-visibility="live"
+        :classes="{
+          label: 'text-[10px]',
+          help: 'text-[8px]',
+          input: 'text-[10px]'
+        }"
         :validation-messages="{
           length: 'Instructions cannot be more than 120 characters.'
         }"
@@ -97,15 +174,16 @@ const handleSubmit = () => {
   display: flex;
   flex-direction: column;
   width: 95%;
-  height: fit-content;
-  min-height: 80%;
-  max-height: 93vh; /* Set a maximum height */
+  min-height: 70%;
+  max-height: 80vh; /* Set a maximum height */
   overflow-y: auto; /* Enable scrolling on overflow */
   position: relative;
   z-index: 0;
-  padding: 1rem;
-  box-shadow: 0px 0px 5px 1px black;
+  padding: 2rem;
+  border: 1px solid black;
   border-radius: 5px;
+  margin-top: 0.5rem;
+  font-size: 1px;
 }
 
 #address-group-wrapper {

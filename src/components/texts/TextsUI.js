@@ -27,5 +27,26 @@ const SecondLandingText = {
   }
 }
 
-export { AboutUsText, FirstLandingText, SecondLandingText };
+const mockData = {
+  id: 1000, name: 'James Butt',
+  country: { name: 'Algeria', code: 'dz' },
+  company: 'Benton, JohnB Jr', date: '2015 -09 - 13', status: 'unqualified', verified: true, activity: 17, representative:
+    { name: 'Ioni Bowcher', image: 'ionibowcher.png' }, balance: 70663
+}
+const mockOTP = [
+  "A1B2C3",
+  "D4E5F6",
+  "G7H8I9",
+  "J0K1L2",
+  "b2c3",
+  "P6Q7R8",
+  "S9T0U1",
+  "V2W3X4",
+  "Y5Z6A7",
+  "B8C9D0"
+];
+
+
+
+export { AboutUsText, FirstLandingText, SecondLandingText, mockData, mockOTP };
 
